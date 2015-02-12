@@ -7,6 +7,11 @@ class Game
     finish = finish
     @numbers = *(start..finish)
     fizz(numbers)
+    fizzbuzz(numbers)
+  end
+  
+  def fizzbuzz(numbers)
+    @numbers_fizz_buzzed = numbers
   end
   
   def fizz(numbers)
@@ -16,7 +21,8 @@ class Game
   end
   
   def buzz(numbers_fizzed)
-    @numbers_buzzed = numbers_fizzed
+    buzz = "buzz"
+    @numbers_buzzed = numbers_fizzed.map { |x| x % 5 == 0 ? buzz : x}
   end
   
 end

@@ -21,16 +21,23 @@ describe Game do
   end
   
   context "when we fizz numbers" do
-    it "replaces three with fizz" do
+    it "replaces 3 with fizz" do
       game = Game.new
       expect(game.numbers_fizzed[2]).to eq("fizz")
     end
   end
   
   context "when we buzz numbers" do
-    it "replaces five with buzz" do
+    it "replaces 5 with buzz" do
       game = Game.new
       expect(game.numbers_buzzed[4]).to eq("buzz")
+    end
+  end
+  
+  context "when we fizzbuzz numbers" do
+    it "replaces 15 with fizzbuzz" do
+      game = Game.new
+      expect(game.numbers_buzzed[14]).to eq("fizzbuzz")
     end
   end
   
