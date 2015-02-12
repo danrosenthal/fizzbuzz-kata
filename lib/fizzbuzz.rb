@@ -1,6 +1,6 @@
 class Game
   
-  attr_accessor :numbers, :numbers_fizzed, :numbers_buzzed
+  attr_accessor :numbers, :numbers_fizzed, :numbers_buzzed, :numbers_fizzbuzzed, :numbers_fizzbuzzbuzzed
   
   def initialize(start = 1, finish = 100)
     start = start
@@ -11,7 +11,8 @@ class Game
   end
   
   def fizzbuzz(numbers)
-    @numbers_fizz_buzzed = numbers
+    fizzbuzz = "fizzbuzz"
+    @numbers_fizzbuzzed = numbers.map { |x| (x % 3 == 0 && x % 5 == 0) ? fizzbuzz : x }
   end
   
   def fizz(numbers)
@@ -22,7 +23,12 @@ class Game
   
   def buzz(numbers_fizzed)
     buzz = "buzz"
-    @numbers_buzzed = numbers_fizzed.map { |x| x % 5 == 0 ? buzz : x}
+    @numbers_buzzed = numbers_fizzed.map { |x| x % 5 == 0 ? buzz : x }
+    #fizzbuzzbuzz(numbers_buzzed)
+  end
+  
+  def fizzbuzzbuzz
+    @numbers_fizzbuzzbuzzed = numbers_buzzed
   end
   
 end

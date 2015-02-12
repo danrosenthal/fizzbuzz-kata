@@ -37,7 +37,22 @@ describe Game do
   context "when we fizzbuzz numbers" do
     it "replaces 15 with fizzbuzz" do
       game = Game.new
-      expect(game.numbers_buzzed[14]).to eq("fizzbuzz")
+      expect(game.numbers_fizzbuzzed[14]).to eq("fizzbuzz")
+    end
+  end
+  
+  context "when we fizz, buzz, and fizzbuzz numbers" do
+    it "replaces 3 with fizz" do
+      game = Game.new
+      expect(game.numbers_fizzbuzzbuzzed[2]).to eq("fizz")
+    end
+    it "replaces 5 with buzz" do
+      game = Game.new
+      expect(game.numbers_fizzbuzzbuzzed[4]).to eq("buzz")
+    end
+    it "replaces 15 with fizzbuzz" do
+      game = Game.new
+      expect(game.numbers_fizzbuzzbuzzed[14]).to eq("fizzbuzz")
     end
   end
   
