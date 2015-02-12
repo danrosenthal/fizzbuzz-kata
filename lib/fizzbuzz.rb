@@ -2,8 +2,10 @@ class Game
   
   attr_accessor :stuff
   
-  def initialize
-    @stuff = *(1..100)
+  def initialize(start = 1, finish = 100)
+    @start = start
+    @finish = finish
+    @stuff = *(start..finish)
   end
   
 end
