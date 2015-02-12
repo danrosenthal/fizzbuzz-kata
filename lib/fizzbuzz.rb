@@ -12,11 +12,16 @@ class Game
     f = "fizz"
     b = "buzz"
     fb = "fizzbuzz"
+    bo = "boom"
     @numbers_mapped = numbers.map do |x|
-      if divisible_by_3(x) && !divisible_by_5(x)
+      if divisible_by_3(x) && !divisible_by_5(x) && !divisible_by_12(x)
         f
-      elsif divisible_by_5(x) && !divisible_by_3(x)
+      elsif divisible_by_5(x) && !divisible_by_3(x) && !divisible_by_12(x)
         b
+      elsif divisible_by_3(x) && divisible_by_5(x) && !divisible_by_12(x)
+        fb
+      elsif divisible_by_12(x)
+        bo
       else
         x
       end
@@ -25,7 +30,7 @@ class Game
   end
   
   def output(numbers_mapped)
-    #print numbers_mapped
+    print numbers_mapped
   end
   
   private
@@ -38,4 +43,10 @@ class Game
     x % 5 == 0
   end
   
+  def divisible_by_12(x)
+    x % 12 == 0
+  end
+  
 end
+
+Game.new
