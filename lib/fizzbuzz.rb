@@ -15,7 +15,7 @@ class Game
     @numbers_mapped = numbers.map do |x|
       if divisible_by_3(x)
         f
-      elsif x % 5 == 0
+      elsif divisible_by_5(x)
         b
       else
         x
@@ -28,8 +28,14 @@ class Game
     #print numbers_mapped
   end
   
+  private
+  
   def divisible_by_3(x)
     x % 3 == 0
+  end
+  
+  def divisible_by_5(x)
+    x % 5 == 0
   end
   
 end
