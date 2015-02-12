@@ -15,6 +15,8 @@ class Game
     @numbers_mapped = numbers.map do |x|
       if x % 3 == 0
         f
+      elsif x % 5 == 0
+        b
       else
         x
       end
