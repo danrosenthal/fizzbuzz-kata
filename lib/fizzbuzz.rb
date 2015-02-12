@@ -13,9 +13,9 @@ class Game
     b = "buzz"
     fb = "fizzbuzz"
     @numbers_mapped = numbers.map do |x|
-      if divisible_by_3(x)
+      if divisible_by_3(x) && !divisible_by_5(x)
         f
-      elsif divisible_by_5(x)
+      elsif divisible_by_5(x) && !divisible_by_3(x)
         b
       else
         x
