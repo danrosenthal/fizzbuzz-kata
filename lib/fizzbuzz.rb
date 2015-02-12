@@ -13,7 +13,7 @@ class Game
     b = "buzz"
     fb = "fizzbuzz"
     @numbers_mapped = numbers.map do |x|
-      if x % 3 == 0
+      if divisible_by_3(x)
         f
       elsif x % 5 == 0
         b
@@ -26,6 +26,10 @@ class Game
   
   def output(numbers_mapped)
     #print numbers_mapped
+  end
+  
+  def divisible_by_3(x)
+    x % 3 == 0
   end
   
 end
