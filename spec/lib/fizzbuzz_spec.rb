@@ -21,37 +21,37 @@ describe Game do
   
   context "when we fizz numbers" do
     it "replaces 3 with fizz" do
-      expect(subject.numbers_fizzed[2]).to eq("fizz")
+      expect(subject.numbers_mapped[2]).to eq("fizz")
     end
   end
   
   context "when we buzz numbers" do
     it "replaces 5 with buzz" do
-      expect(subject.numbers_buzzed[4]).to eq("buzz")
+      expect(subject.numbers_mapped[4]).to eq("buzz")
     end
   end
   
   context "when we fizzbuzz numbers" do
     it "replaces 15 with fizzbuzz" do
-      expect(subject.numbers_fizzbuzzed[14]).to eq("fizzbuzz")
+      expect(subject.numbers_mapped[14]).to eq("fizzbuzz")
     end
   end
   
   context "when we boom numbers" do
     it "replaces 12 with boom" do
-      expect(subject.numbers_boomed[11]).to eq("boom")
+      expect(subject.numbers_mapped[11]).to eq("boom")
     end
   end
   
   context "when we fizz, buzz, and fizzbuzz numbers" do
     it "replaces 3 with fizz" do
-      expect(subject.numbers_fizzbuzzbuzzed[2]).to eq("fizz")
+      expect(subject.numbers_mapped[2]).to eq("fizz")
     end
     it "replaces 5 with buzz" do
-      expect(subject.numbers_fizzbuzzbuzzed[4]).to eq("buzz")
+      expect(subject.numbers_mapped[4]).to eq("buzz")
     end
     it "replaces 15 with fizzbuzz" do
-      expect(subject.numbers_fizzbuzzbuzzed[14]).to eq("fizzbuzz")
+      expect(subject.numbers_mapped[14]).to eq("fizzbuzz")
     end
   end
   
