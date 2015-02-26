@@ -1,51 +1,61 @@
 class Game
-  attr_accessor :numbers_mapped
+  attr_reader :fizzbuzz_game
                 
   def initialize(start = 1, finish = 100)
-    start = start
-    finish = finish
     numbers = *(start..finish)
-    map_numbers(numbers)
+    play_game(numbers)
   end
   
-  def map_numbers(numbers)
-    f = "fizz"; b = "buzz"; fb = "fizzbuzz"; bo = "boom"
-    @numbers_mapped = numbers.map do |number|
-      if divisible_by_3(number) && !divisible_by_5(number) && !divisible_by_12(number)
-        f
-      elsif divisible_by_5(number) && !divisible_by_3(number) && !divisible_by_12(number)
-        b
-      elsif divisible_by_3_and_5(number) && !divisible_by_12(number)
-        fb
-      elsif divisible_by_12(number)
-        bo
-      else
-        number
-      end
+  def play_game(numbers)
+    @fizzbuzz_game = numbers.map do |number| check(number)
     end
-    output(numbers_mapped)
   end
   
-  def output(numbers_mapped)
-    puts numbers_mapped
+  def check(number)
+    fizz = Fizz.new
+    buzz = Buzz.new
+    fizzbuzz = FizzBuzz.new
+    none = NoneOfTheAbove.new
+    
+    [fizzbuzz, fizz, buzz, none].each do |check|
+      return check.define(number) if check.is?(number)
+    end
   end
-  
-  private
-  
-  def divisible_by_3(number)
+end
+
+
+class Fizz
+  def is?(number)
     number % 3 == 0
   end
-  
-  def divisible_by_5(number)
+  def define(number)
+    "Fizz"
+  end
+end
+
+class Buzz
+  def is?(number)
     number % 5 == 0
   end
-  
-  def divisible_by_3_and_5(number)
-    divisible_by_3(number) && divisible_by_5(number)
+  def define(number)
+    "Buzz"
   end
-  
-  def divisible_by_12(number)
-    number % 12 == 0
+end
+
+class FizzBuzz
+  def is?(number)
+    number % 3 == 0 && number % 5 == 0
   end
-  
+  def define(number)
+    "FizzBuzz"
+  end
+end
+
+class NoneOfTheAbove
+  def is?(number)
+    true
+  end
+  def define(number)
+    number
+  end
 end

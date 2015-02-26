@@ -2,34 +2,28 @@ require 'spec_helper'
 require 'fizzbuzz'
 
 describe Game do
-  context "when initiated without arguments" do
-    it "makes an array from 1 to 100" do
-      expect(subject.numbers_mapped.length).to eq(100)
+  context "when passing 3" do
+    it "returns Fizz" do
+      expect(subject.check(3)).to eq("Fizz")
     end
   end
   
-  context "when we fizz numbers" do
-    it "replaces 3 with fizz" do
-      expect(subject.numbers_mapped[2]).to eq("fizz")
+  context "when passing 5" do
+    it "returns Buzz" do
+      expect(subject.check(5)).to eq("Buzz")
     end
   end
   
-  context "when we buzz numbers" do
-    it "replaces 5 with buzz" do
-      expect(subject.numbers_mapped[4]).to eq("buzz")
+  context "when passing 15" do
+    it "returns FizzBuzz" do
+      expect(subject.check(15)).to eq("FizzBuzz")
     end
   end
   
-  context "when we fizzbuzz numbers" do
-    it "replaces 15 with fizzbuzz" do
-      expect(subject.numbers_mapped[14]).to eq("fizzbuzz")
+  context "when passing 4" do
+    it "returns 4" do
+      expect(subject.check(4)).to eq(4)
     end
   end
-  
-  context "when we boom numbers" do
-    it "replaces 12 with boom" do
-      expect(subject.numbers_mapped[11]).to eq("boom")
-    end
-  end
-  
 end
+
