@@ -1,28 +1,27 @@
 class Game
   attr_reader :fizzbuzz_game
-                
+
   def initialize(start = 1, finish = 100)
     numbers = *(start..finish)
     play_game(numbers)
   end
-  
+
   def play_game(numbers)
     @fizzbuzz_game = numbers.map do |number| check(number)
     end
   end
-  
+
   def check(number)
     fizz = Fizz.new
     buzz = Buzz.new
     fizzbuzz = FizzBuzz.new
     none = NoneOfTheAbove.new
-    
+
     [fizzbuzz, fizz, buzz, none].each do |check|
       return check.define(number) if check.is?(number)
     end
   end
 end
-
 
 class Fizz
   def is?(number)
@@ -41,6 +40,7 @@ class Buzz
     "Buzz"
   end
 end
+
 
 class FizzBuzz
   def is?(number)
